@@ -26,6 +26,9 @@ app.get('/api/v1/projects/', (request, response) => { // app.get is express's ve
           error: 'projects not found' // send back the error key with a value of 'project not found'
         });
       }
+    })    
+    .catch(error => { // catch any errors
+      response.status(500).json({ error }); // if errors are caught send a 500 and the error message 
     });
 });
 
@@ -59,6 +62,9 @@ app.get('/api/v1/palettes/:id', (request, response) => { // handle the dynamic r
           error: `Could not find palette with id ${request.params.id}` // send back the error key with a value of 'could not find project with id that was sent to the server'
         });
       }
+    })
+    .catch(error => { // catch any errors
+      response.status(500).json({ error }); // if errors are caught send a 500 and the error message 
     });
 });
 
@@ -119,5 +125,8 @@ app.delete('/api/v1/palettes/:id', (request, response) => { // handle the dynami
           error: 'No paletteId property provided' // send an error of the string 'No paletteId property provided'
         });
       }
+    })
+    .catch(error => { // catch any errors
+      response.status(500).json({ error }); // if errors are caught send a 500 and the error message 
     });
 });
