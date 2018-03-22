@@ -1,12 +1,12 @@
 language: node_js
-
 node_js:
-  - node
-
+- node
 services:
-  - postgresql
-
+- postgresql
 before_script:
-  - psql -c 'CREATE DATABASE palettes;' -U postgres
-  - "knex migrate:latest"
-  - "knex seed:run"
+- psql -c 'CREATE DATABASE palettes;' -U postgres
+- knex migrate:latest
+- knex seed:run
+deploy:
+  api_key:
+    secure: mskNstg1ZQIc9WGEx2wo34YhZcanwEHT6bPBx0zBdkte+1Ucpa+hzwdJwJ9hpbmxmo4PMejCKnyTY+K5qYwMLu9MhXD+kv+RMYnt+hAy1MWfD29P2PutHppBeiaagBOzZoL/xrB6ClqeG4M+l9E53g13MzjBeHQ60nFVqLDVQ8GI72FzYulr6auKFwHmOd9mGU42xlKZv7e+uk/FQgaOzub39MqkxzdzOsUw6vY3ZPRg0DbhQ7G9NPcVSqUAphffPzRIh/ejkFlwo4yZDC4dK6OBnaB/JNo71AO/3IGe+5sxYQ7s91Ema0LzFVuucj+o7zNmqGNYERvR5W5rrZuWgamdU7BTsmqrDDjYD10kMr7SXq/bldUa8iSLfc7UIq/L7OSUpuOHn/1aER41nAGPO5rNkQTp1H0vKp4hu0KSKz4jQXNz0vfT9zcWuJjDCswYRl/yO1pfBN9goNvew2/q2M8+RFxAxOqr6Jm4lFhRfgRdrny3Azd1HPuPbkkNhIfn5zrPfUpToy+c6ZVFF4bn9TM3IzBDLJ7x5EudJ7dC5H/XFfHqYM1kwmC7ibdKk/TemST48qz7dOpaA0fZvuNXXtT2YFeojzr6EPK5TlJ3UhpokkFPK/AdZ6ev0EysuGu+J4Uxwf+3duih1Mt4dknxbbEe/fHezvrhgBnkJwiP+Mg=
