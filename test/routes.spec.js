@@ -46,7 +46,7 @@ describe('API Routes', () => {
           response.body[0].should.have.property('id');
           response.body[0].id.should.equal(1);
           response.body[0].should.have.property('name');
-          response.body[0].name.should.equal('second project');
+          response.body[0].name.should.equal('first project');
         })
         .catch(err => {
           throw err;
@@ -67,7 +67,7 @@ describe('API Routes', () => {
           response.body[0].should.have.property('id');
           response.body[0].id.should.equal(1);
           response.body[0].should.have.property('name');
-          response.body[0].name.should.equal('second project');
+          response.body[0].name.should.equal('first project');
         })
         .catch(err => {
           throw err;
@@ -84,7 +84,7 @@ describe('API Routes', () => {
           response.should.have.status(200);
           response.should.be.json;
           response.body.should.be.a('array');
-          response.body.length.should.equal(1);            
+          response.body.length.should.equal(2);            
           response.body[0].should.have.property('palette_name');
           response.body[0].palette_name.should.equal('pallet one');
           response.body[0].should.have.property('color_one');
