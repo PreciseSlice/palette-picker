@@ -8,7 +8,7 @@
     "lint": "./node_modules/eslint/bin/eslint.js ./public/js/*.js server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Spencer Herms",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
