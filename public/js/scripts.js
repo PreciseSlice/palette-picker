@@ -34,6 +34,7 @@ const setColors = () => {
   }
 };
 
+//eslint-disable-next-line
 const getFromApi = async url => {
   try {
     const initialFetch = await fetch(url);
