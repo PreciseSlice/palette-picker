@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
+
 const requireHTTPS = (req, res, next) => {
   if (req.headers['x-forwarded-proto'] !== 'https') {
     return res.redirect('https://' + req.get('host') + req.url);
@@ -11,21 +12,19 @@ const requireHTTPS = (req, res, next) => {
   next();
 };
 
-app.enable('trust proxy');
-app.set('port', process.env.PORT || 3000);
-app.locals.title = 'Palette Picker';
-app.use(bodyParser.json());
-
 if (process.env.NODE_ENV === 'production') {
   app.use(requireHTTPS);
 }
 
+app.set('port', process.env.PORT || 3000);
+
+app.enable('trust proxy');
+
+app.use(bodyParser.json());
+
 app.use(express.static('public'));
-app.listen(app.get('port'), () => {
-  console.log(
-    `${app.locals.title} sever is running on port ${app.get('port')}.`
-  );
-});
+
+app.locals.title = 'Palette Picker';
 
 app.get('/api/v1/projects', (request, response) => {
   database('projects')
@@ -87,7 +86,7 @@ app.post('/api/v1/palettes', (request, response) => {
     if (!palette[requiredParameter]) {
       return response.status(422).send({
         error: `Expected format: { palette_name: <String> }.
-                You're missing a "${requiredParameter}" property`
+        You're missing a "${requiredParameter}" property`
       });
     }
   }
@@ -109,7 +108,7 @@ app.post('/api/v1/projects', (request, response) => {
     if (!project[requiredParameter]) {
       return response.status(422).send({
         error: `Expected format: { name: <String> }. 
-                You're missing a "${requiredParameter}" property.`
+        You're missing a "${requiredParameter}" property.`
       });
     }
   }
@@ -131,7 +130,7 @@ app.delete('/api/v1/palettes/:id', (request, response) => {
     .del()
     .then(palette => {
       if (palette) {
-        response.status(202).json(request.body);
+        response.status(200).json(request.body);
       } else {
         return response.status(422).send({
           error: 'No paletteId property provided'
@@ -141,6 +140,13 @@ app.delete('/api/v1/palettes/:id', (request, response) => {
     .catch(error => {
       response.status(500).json({ error });
     });
+});
+
+app.listen(app.get('port'), () => {
+  // eslint-disable-next-line
+  console.log(
+    `${app.locals.title} sever is running on port ${app.get('port')}.`
+  );
 });
 
 module.exports = app;
