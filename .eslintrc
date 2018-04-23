@@ -18,14 +18,13 @@
     "array-bracket-spacing": ["error", "never"],
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
-    "camelcase": "warn",
     "comma-dangle": ["error", "never"],
     "comma-spacing": ["error", { "before": false, "after": true }],
     "comma-style": ["error", "last"],
     "computed-property-spacing": ["error", "never"],
     "func-call-spacing": ["error", "never"],
     "keyword-spacing": ["error", { "before": true, "after": true }],
-    "max-len": ["warn", 80],
+    "max-len": ["warn", 100],
     "no-duplicate-imports": "error",
     "id-length": "error",
     "id-blacklist": ["error", "err", "e", "cb", "callback", "payload", "obj", "arr"],
@@ -33,5 +32,6 @@
   },
   "globals": {
     "expect": true
-  }
+  },
+  "parser": "babel-eslint"
 }
