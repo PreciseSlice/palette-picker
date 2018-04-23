@@ -101,7 +101,7 @@ describe('Routes', () => {
               response.body.should.be.a('array');
               response.body.length.should.equal(2);
               response.body[0].should.have.property('palette_name');
-              response.body[0].palette_name.should.equal('pallet one');
+              response.body[0].palette_name.should.equal('palette one');
               response.body[0].should.have.property('color_one');
               response.body[0].color_one.should.equal('#848f5b');
               response.body[0].should.have.property('color_two');
