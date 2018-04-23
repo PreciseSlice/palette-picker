@@ -9,7 +9,7 @@ const hexCode = $('.main-color-squares h3');
 const paletteNameInput = $('.generate-inputs input');
 const projectNameInput = $('.new-project-container input');
 const pastProjectContainer = $('.all-past-project-container');
-const deleteBtn = $('.delete-btn');
+//const deleteBtn = $('.delete-btn');
 
 const getRandomHex = () => {
   return (
@@ -21,15 +21,15 @@ const getRandomHex = () => {
 };
 
 const setColors = () => {
-  for (let i = 0; i < 5; i++) {
+  for (let index = 0; index < 5; index++) {
     const randomColor = getRandomHex();
-    const image = $(`#square-${i} img`);
+    const image = $(`#square-${index} img`);
 
     if (image[0].className === 'open') {
-      $(`#square-${i}`).css({
+      $(`#square-${index}`).css({
         backgroundColor: randomColor
       });
-      $(`#square-${i} h3`).text(randomColor);
+      $(`#square-${index} h3`).text(randomColor);
     }
   }
 };
@@ -40,12 +40,14 @@ const getFromApi = async url => {
 
     return await initialFetch.json();
   } catch (error) {
+    // eslint-disable-next-line
     console.log(error);
   }
 };
 
 const postToApi = async (url, data) => {
   try {
+    // eslint-disable-next-line
     const initialFetch = await fetch(url, {
       method: 'POST',
       body: JSON.stringify(data),
@@ -54,28 +56,29 @@ const postToApi = async (url, data) => {
       }
     });
   } catch (error) {
+    // eslint-disable-next-line
     console.log(error);
   }
 };
 
 const deleteFromApi = async url => {
   try {
+    // eslint-disable-next-line
     const initialFetch = await fetch(url, {
-      method: 'DELETE',
-    })
+      method: 'DELETE'
+    });
   } catch (error) {
+    // eslint-disable-next-line
     console.log(error);
   }
-}
+};
 
 const getProjects = async () => {
   const projects = await getFromApi('/api/v1/projects');
 
   projects.forEach(async project => {
     const { id, name } = project;
-    const palettes = await getFromApi(
-      `/api/v1/palettes/${id}`
-    );
+    const palettes = await getFromApi(`/api/v1/palettes/${id}`);
 
     select.append($(`<option value="${id}" >${name}</option>`));
 
@@ -96,19 +99,18 @@ const getProjects = async () => {
 
 const appendPalettes = async palettes => {
   palettes.forEach(palette => {
-      const {
-        id,
-        palette_name,
-        project_id,
-        color_one,
-        color_two,
-        color_three,
-        color_four,
-        color_five
-      } = palette;
+    const {
+      id,
+      palette_name,
+      project_id,
+      color_one,
+      color_two,
+      color_three,
+      color_four,
+      color_five
+    } = palette;
 
-      const paletteTemplate =
-        `
+    const paletteTemplate = `
           <div class="square-cards">
             <h3>${palette_name}</h3>
               <div class="thumbnails">
@@ -120,8 +122,8 @@ const appendPalettes = async palettes => {
               </div>
             <button class="delete-btn" id="${id}">delete</button>
           </div>
-        `
-      $(`#project${project_id}`).append(paletteTemplate);
+        `;
+    $(`#project${project_id}`).append(paletteTemplate);
   });
 };
 
@@ -194,6 +196,6 @@ saveProjectBtn.on('click', event => {
 
 pastProjectContainer.on('click', '.delete-btn', event => {
   event.preventDefault();
-  id = event.target.id
-  deleteFromApi(`/api/v1/palettes/${id}`)
-})
+  const id = event.target.id;
+  deleteFromApi(`/api/v1/palettes/${id}`);
+});
