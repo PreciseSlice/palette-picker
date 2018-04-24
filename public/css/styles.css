@@ -36,6 +36,10 @@ header button {
   width: 10%;
 }
 
+form {
+  display: flex;
+}
+
 .main-square-container {
   align-items: center;
   background-color: #7d7d7d;
