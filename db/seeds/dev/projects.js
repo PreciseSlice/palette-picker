@@ -15,7 +15,7 @@ exports.seed = function(knex, Promise) {
             return knex('palettes').insert([
               {
                 project_id: project[0],
-                palette_name: 'pallet one',
+                palette_name: 'palette one',
                 color_one: '#848f5b',
                 color_two: '#21fe01',
                 color_three: '#76789c',
@@ -24,12 +24,12 @@ exports.seed = function(knex, Promise) {
               },
               {
                 project_id: project[0],
-                palette_name: 'pallet two',
-                color_one: '#847f5c',
-                color_two: '#51fe21',
-                color_three: '#96285c',
-                color_four: '#1c66d3',
-                color_five: '#f2f621'
+                palette_name: 'green field',
+                color_one: '#5a7303',
+                color_two: '#42d067',
+                color_three: '#14f4ba',
+                color_four: '#069032',
+                color_five: '#1be4f2'
               }
             ]);
           })

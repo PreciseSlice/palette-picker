@@ -13,10 +13,12 @@
 
 <body>
   <section>
+
     <header>
       <h1>Palette Picker</h1>
       <button class="generate-button">Generate</button>
     </header>
+
     <section class="main-square-container">
       <div class="main-color-squares" id="square-0">
         <div class="palette-overlay">
@@ -49,25 +51,32 @@
         </div>
       </div>
     </section>
+
     <section class="inputs-container">
       <section class="generate-container">
         <div class="generate-inputs">
-          <select class="projects-select">
-          </select>
-          <input type="text" placeholder="palette name">
-          <button class="save-palette-button">Save Palette</button>
+          <form>
+            <select class="projects-select">
+            </select>
+            <input type="text" name="palette" placeholder="palette name">
+            <button class="save-palette-button">Save Palette</button>
+          </form>
         </div>
       </section>
       <section class="create-new-container">
         <h3 id="new-project-text">create a new project:</h3>
         <div class="new-project-container">
-          <input type="text" placeholder="New project name">
-          <button class="save-project-button">Save Project</button>
+          <form>
+            <input type="text" name="project" placeholder="New project name">
+            <button class="save-project-button">Save Project</button>
+          </form>
         </div>
       </section>
     </section>
+
     <section class="all-past-project-container">
     </section>
+
   </section>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="./js/scripts.js"></script>
