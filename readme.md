@@ -58,6 +58,8 @@ Select the project to save the palette to and then input the name of your palett
 
 ![save palette](https://media.giphy.com/media/Dr0rMzwfrh4zKBbLHz/giphy.gif)
 
+<br/>
+
 ## Getting Started 
 
 #### Clone down this repository. 
