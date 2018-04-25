@@ -26,26 +26,6 @@ The project features a jQuery client side, a Node.js + Express.js server and pos
 * Chai
 * Mocha
 
-## Getting Started 
-
-#### Clone down this repository. 
-
-`git clone https://github.com/PreciseSlice/palette-picker`
-
-#### cd into the repository and install dependancies.
-
-`cd palette-picker`
-
-`npm install`
-
-#### To start the server.
-
-`npm start`
-
-#### To run the test suite.
-
-`npm test`
-
 ## Using the app
 
 ### Generate a Palette
@@ -77,3 +57,24 @@ Enter the project name and hit save to create a new project.
 Select the project to save the palette to and then input the name of your palette.
 
 ![save palette](https://media.giphy.com/media/Dr0rMzwfrh4zKBbLHz/giphy.gif)
+
+## Getting Started 
+
+#### Clone down this repository. 
+
+`git clone https://github.com/PreciseSlice/palette-picker`
+
+#### cd into the repository and install dependancies.
+
+`cd palette-picker`
+
+`npm install`
+
+#### To start the server.
+
+`npm start`
+
+#### To run the test suite.
+
+`npm test`
+
