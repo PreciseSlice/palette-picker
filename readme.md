@@ -29,17 +29,17 @@ Click the link above to interact with this project.
 
 `git clone https://github.com/PreciseSlice/palette-picker`
 
-#### cd into the repository and install dependancies 
+#### cd into the repository and install dependancies.
 
 `cd palette-picker`
 
 `npm install`
 
-#### To start server 
+#### To start the server. 
 
 `npm start`
 
-#### To run test 
+#### To run the test suite.
 
 `npm test`
 
